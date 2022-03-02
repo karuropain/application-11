@@ -1,6 +1,5 @@
 class ListsController < ApplicationController
   def new
-    # Viewに渡すためのインスタンス変数にからのmodelオブジェクトを生成する
     @list = List.new
   end
 
@@ -12,8 +11,9 @@ class ListsController < ApplicationController
     # 4. トップ画面へリダイレクト
     redirect_to '/top'
   end
-  
+
   def index
+    @lists = List.all
   end
 
   def show
