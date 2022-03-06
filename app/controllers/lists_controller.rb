@@ -6,10 +6,9 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-    # 詳細画面へリダイレクト
-    redirect_to list_path(@list.id)
+      redirect_to list_path(@list.id)
     else
-      render :n
+      render :new
     end
   end
 
@@ -29,7 +28,6 @@ class ListsController < ApplicationController
     list = List.find(params[:id])
     list.update(list_params)
     redirect_to list_path(list.id)
-    
   end
   
   def destroy
